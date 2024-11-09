@@ -26,6 +26,9 @@ import {
   
     @Column('date', {name: 'fecha_estreno'})
     fechaEstreno: Date;
+
+    @Column('varchar', {name: 'tipo_genero', length: 50 })
+    tipoGenero: string;
   
     @CreateDateColumn({ name: 'fecha_creacion' })
     fechaCreacion: Date;

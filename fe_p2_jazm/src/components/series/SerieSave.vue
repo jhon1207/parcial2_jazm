@@ -40,6 +40,7 @@ async function handleSave() {
             director: serie.value.director,
             temporadas: serie.value.temporadas,
             fechaEstreno: serie.value.fechaEstreno,
+            tipoGenero: serie.value.tipoGenero,
         }
         if (props.modoEdicion) {
             await http.patch(`${ENDPOINT}/${serie.value.id}`, body)
@@ -79,6 +80,16 @@ async function handleSave() {
                 <label for="fechaEstreno" class="font-semibold w-4">Fecha Estreno</label>
                 <input type="date" id="fechaEstreno" v-model="serie.fechaEstreno" class="flex-auto" autocomplete="off"
                     placeholder="dd-mm-yyyy" />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="tipoGenero" class="font-semibold w-4">Tipo Genero</label>
+                <select id="tipoGenero" v-model="serie.tipoGenero" class="flex-auto">
+                    <option disabled value="">Seleccionar un Genero</option>
+                    <option value="Accion">Accion</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Drama">Drama</option>
+                </select>
             </div>
             <div class="flex justify-end gap-2">
                 <Button type="button" label="Cancelar" icon="pi pi-times" severity="secondary"
